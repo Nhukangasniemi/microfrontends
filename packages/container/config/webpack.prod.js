@@ -9,7 +9,7 @@ const prodConfig = {
   mode: 'production',
   output: {
     filename: '[name].[contenthash].js',
-    publicPath: '/container/lastest/', // Whenever HTML plugin starts to load script tags, it takes all of the files names but prepend them with this public path
+    publicPath: '/container/latest/', // Whenever HTML plugin starts to load script tags, it takes all of the files names but prepend them with this public path
   },
   plugins: [
     new ModuleFederationPlugin({

@@ -20,7 +20,7 @@ const mount = (
   const history: MemoryHistory | History =
     navigateOptions.defaultHistory ??
     createMemoryHistory({
-      initialEntries: [navigateOptions.initialPath ?? ''],
+      initialEntries: [navigateOptions.initialPath || ''],
     });
 
   if (navigateOptions.onNavigate) {
@@ -38,7 +38,7 @@ const mount = (
 };
 
 if (process.env.NODE_ENV === 'development') {
-  const devRoot = document.querySelector('#_marketing-dev-root');
+  const devRoot = document.querySelector('#_auth-dev-root');
   if (devRoot) {
     mount(devRoot, {
       defaultHistory: createBrowserHistory(),

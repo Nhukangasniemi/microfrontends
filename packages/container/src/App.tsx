@@ -1,7 +1,8 @@
 import React from 'react';
 import MarketingApp from './components/MarketingApp';
+import AuthApp from './components/AuthApp';
 import Header from './components/Header';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import {
   StylesProvider,
   createGenerateClassName,
@@ -16,8 +17,11 @@ export default () => {
     <BrowserRouter>
       <StylesProvider generateClassName={generateClassName}>
         <div>
-          <Header signedIn={true} onSignOut={() => console.log('Hello')} />
-          <MarketingApp />
+          <Header signedIn={false} onSignOut={() => console.log('Hello')} />
+          <Switch>
+            <Route path="/auth" component={AuthApp} />
+            <Route path="/" component={MarketingApp} />
+          </Switch>
         </div>
       </StylesProvider>
     </BrowserRouter>

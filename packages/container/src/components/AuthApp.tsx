@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from 'react';
-import { mount } from 'marketing/MarketingApp';
+import { mount } from 'auth/AuthApp';
 // Reason to import mount function instead of MarketingApp as a component
 // Near-zero coupling between container and child-apps
 // Container shouldn't assume that a child is using particular framework
@@ -12,12 +12,12 @@ export default () => {
 
   useEffect(() => {
     const { onParentNavigate } = mount(ref.current, {
-      initialPath: history.location.pathname,
       onNavigate: (location: Location) => {
         if (history.location.pathname !== location.pathname) {
           history.push(location.pathname);
         }
       },
+      initialPath: history.location.pathname,
     });
 
     history.listen(onParentNavigate);

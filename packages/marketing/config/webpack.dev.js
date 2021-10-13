@@ -9,9 +9,7 @@ const devConfig = {
   mode: 'development',
   devServer: {
     port: 8081,
-    // historyApiFallback: {
-    //   index: path.join(__dirname, 'public/index.html'),
-    // },
+    historyApiFallback: true,
   },
   plugins: [
     new HtmlWebpackPlugin({

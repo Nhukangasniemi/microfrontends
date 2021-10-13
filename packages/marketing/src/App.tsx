@@ -6,14 +6,14 @@ import {
 } from '@material-ui/core/styles';
 import Pricing from './components/Pricing';
 import Landing from './components/Landing';
-import { MemoryHistory } from 'history';
+import { History, MemoryHistory } from 'history';
 
 const generateClassName = createGenerateClassName({
   productionPrefix: 'ma',
 });
 
 interface IProps {
-  history: MemoryHistory;
+  history: MemoryHistory | History;
 }
 
 const App = ({ history }: IProps) => {

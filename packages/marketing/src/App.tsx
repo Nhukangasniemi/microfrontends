@@ -17,7 +17,6 @@ interface IProps {
 }
 
 const App = ({ history }: IProps) => {
-  console.log(history.location.pathname);
   return (
     <div>
       <StylesProvider generateClassName={generateClassName}>

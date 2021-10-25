@@ -15,6 +15,7 @@ const mount = (
     onNavigate?: (location: Location) => void;
     defaultHistory?: History;
     initialPath?: string;
+    onSignIn?: () => void;
   }
 ) => {
   const history: MemoryHistory | History =
@@ -26,7 +27,10 @@ const mount = (
   if (navigateOptions.onNavigate) {
     history.listen(navigateOptions.onNavigate);
   }
-  ReactDOM.render(<App history={history} />, el);
+  ReactDOM.render(
+    <App history={history} onSignIn={navigateOptions.onSignIn} />,
+    el
+  );
 
   return {
     onParentNavigate: (location: Location) => {

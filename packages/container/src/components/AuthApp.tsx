@@ -6,7 +6,11 @@ import { mount } from 'auth/AuthApp';
 import { Location } from 'history';
 import { useHistory } from 'react-router-dom';
 
-export default () => {
+interface IProps {
+  onSignIn: () => void;
+}
+
+export default (props: IProps) => {
   const ref = useRef();
   const history = useHistory();
 
@@ -18,6 +22,9 @@ export default () => {
         }
       },
       initialPath: history.location.pathname,
+      onSignIn: () => {
+        props.onSignIn();
+      },
     });
 
     history.listen(onParentNavigate);

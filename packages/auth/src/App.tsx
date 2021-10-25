@@ -14,16 +14,21 @@ const generateClassName = createGenerateClassName({
 
 interface IProps {
   history: MemoryHistory | History;
+  onSignIn?: () => void;
 }
 
-const App = ({ history }: IProps) => {
+const App = ({ history, onSignIn }: IProps) => {
   return (
     <div>
       <StylesProvider generateClassName={generateClassName}>
         <Router history={history}>
           <Switch>
-            <Route path="/auth/signin" component={SignIn} />
-            <Route path="/auth/signup" component={SignUp} />
+            <Route path="/auth/signin">
+              <SignIn onSignIn={onSignIn} />
+            </Route>
+            <Route path="/auth/signup">
+              <SignUp onSignIn={onSignIn} />
+            </Route>
           </Switch>
         </Router>
       </StylesProvider>
